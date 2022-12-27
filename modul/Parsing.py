@@ -1,3 +1,6 @@
+from modul.Exception import ExceptionGender
+
+
 class Parsing:
 
     user_data = {}
@@ -11,7 +14,7 @@ class Parsing:
     def parsing_gender(self, simbol):
         if simbol == 'f': self.user_data['Gender'] = 'f'
         elif simbol == 'm': self.user_data['Gender'] = 'm'
-        else: raise Exception
+        else: raise ExceptionGender("The gender should be entered 'f' or 'm'")
 
 
 
