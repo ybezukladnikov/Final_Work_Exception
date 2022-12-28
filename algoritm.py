@@ -15,3 +15,4 @@ for i in s:
 
 print(dict_my)
 print(f'{char} = > {count}')
+print(dict_my)
