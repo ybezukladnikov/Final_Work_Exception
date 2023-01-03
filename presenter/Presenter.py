@@ -1,4 +1,5 @@
 from modul.Exception import *
+from view.Input import *
 from modul.Parsing import Parsing
 from modul.WriteFile import *
 
@@ -6,16 +7,17 @@ from modul.WriteFile import *
 class Presenter:
     parsing = Parsing()
     read_write = ReadWriteFile()
+    input_d = Input()
 
 
     def start(self):
-        my_list = [
-            ['testr','02.03.1988','3343', 'Иван', 'Иванович', 'f'],
-            ['petrov', '02.03.1588', '33343', 'Иванr', 'Иванович', 'm'],
-        ]
-        for i in my_list:
+
+        while True:
+
             try:
-                self.parsing.get_parsing(i)
+                data = self.input_d.input_data()
+                self.parsing.get_parsing(data)
+                break
             except ExceptionGender:
                 print(ExceptionGender.description)
 
@@ -31,7 +33,6 @@ class Presenter:
                     if value == '':
                         print(key)
 
-            print(self.parsing.user_data)
-            self.read_write.write_file(self.parsing.user_data)
-            self.parsing.clear_user_data()
+        self.read_write.write_file(self.parsing.user_data)
+        self.parsing.clear_user_data()
 
