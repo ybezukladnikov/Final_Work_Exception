@@ -12,6 +12,16 @@ class Parsing:
         'Telefon': '',
     }
 
+    def clear_user_data(self):
+        self.user_data = {
+        'Surname': '',
+        'Name': '',
+        'Patronymic': '',
+        'Gender': '',
+        'Date': '',
+        'Telefon': '',
+        }
+
 
     def get_parsing(self, array):
         if len(array)!= 6:
@@ -29,6 +39,8 @@ class Parsing:
 
         for value in self.user_data.values():
             if value == '': raise ExceptionNotAllData("The following data is entered incorrectly:")
+
+        return self.user_data
 
     def parsing_gender(self, simbol):
         if simbol == 'f':

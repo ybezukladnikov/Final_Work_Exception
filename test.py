@@ -1,7 +1,14 @@
-import time
-date = input('Date (mm/dd/yyyy): ')
-try:
-  time.strptime(date, '%m.%d.%Y')
-except ValueError:
-  print('Invalid date!')
+from pathlib import Path
+
+import os
+
+
+
+path = Path("repository")
+
+
+for filename in os.listdir(path):
+  # f = os.path.join(path, filename)
+  # if os.path.isfile(f):
+  print(filename[:-4])
 
